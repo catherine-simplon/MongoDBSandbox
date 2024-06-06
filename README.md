@@ -28,6 +28,7 @@ Dans le menu "Database", cliquer sur "Connect", et choisir "Compass", et copier 
 A partir de là, il est possible d'utiliser VSCode ou Compass avec le même accès.
 
 __VS Code :__
+
 Pour VSCode, télécharger l'extension "MongoDB for VS Code", installer, puis cliquer sur l'icône en feuille de MongoDB sur la gauche et dans "Add Connection", coller le "connection string", ne pas oublier de remplacer le mot de passe par celui défini précédemment.
 
 Vous avez maintenant accès au différentes bases de données, vous pouvez voir les documents, etc. 
@@ -39,6 +40,7 @@ Observer les résultats, et raffraichir les collections pour voir apparaitre la 
 Tuto VSCode : https://youtu.be/MLWlWrRAb4w
 
 __Compass :__
+
 Télécharger et installer Compass. 
 Dans "Add Connection", coller le "connection string", ne pas oublier de remplacer le mot de passe par celui défini précédemment. 
 
@@ -51,11 +53,13 @@ Tuto Compass : https://www.youtube.com/watch?v=YBOiX8DwinE
 Pour les exercices, on va travailler dans la base de données `sample_airbnb`, 
 
 __Pour VSCode__
+
 Créer un nouveau fichier, comme le playground. 
 Et faire un `use('sample_aibnb');` pour commencer. 
 La base de données est ensuite accessible avec `db. ...`
 
 __Pour Compass__
+
 Dans la console Mongosh, taper : 
 ```
 use sample_airbnb
@@ -63,7 +67,7 @@ db.listingsAndReviews. ...
 ```
 
 
-_C'est parti pour les exercices :_
+## C'est parti pour les exercices :
 
 
 1. Find the price per night of the first record in the listingsAndReviews collection.
