@@ -27,7 +27,7 @@ Sur l'écran suivant :
 Dans le menu "Database", cliquer sur "Connect", et choisir "Compass", et copier le "connection string".
 A partir de là, il est possible d'utiliser VSCode ou Compass avec le même accès.
 
-_VS Code :_
+__VS Code :__
 Pour VSCode, télécharger l'extension "MongoDB for VS Code", installer, puis cliquer sur l'icône en feuille de MongoDB sur la gauche et dans "Add Connection", coller le "connection string", ne pas oublier de remplacer le mot de passe par celui défini précédemment.
 
 Vous avez maintenant accès au différentes bases de données, vous pouvez voir les documents, etc. 
@@ -38,7 +38,7 @@ Observer les résultats, et raffraichir les collections pour voir apparaitre la 
 
 Tuto VSCode : https://youtu.be/MLWlWrRAb4w
 
-_Compass :_
+__Compass :__
 Télécharger et installer Compass. 
 Dans "Add Connection", coller le "connection string", ne pas oublier de remplacer le mot de passe par celui défini précédemment. 
 
@@ -50,12 +50,12 @@ Tuto Compass : https://www.youtube.com/watch?v=YBOiX8DwinE
 
 Pour les exercices, on va travailler dans la base de données `sample_airbnb`, 
 
-_Pour VSCode_
+__Pour VSCode__
 Créer un nouveau fichier, comme le playground. 
 Et faire un `use('sample_aibnb');` pour commencer. 
 La base de données est ensuite accessible avec `db. ...`
 
-_Pour Compass_
+__Pour Compass__
 Dans la console Mongosh, taper : 
 ```
 use sample_airbnb
@@ -127,7 +127,8 @@ _C'est parti pour les exercices :_
 </details>
 
 8. Write a MongoDB query to find how many listings does the host have in the first records in the listingsAndReviews collection.
-__Hint: use `aggregate`__
+
+_Hint: use `aggregate`_
 
 <details>
   <summary>Answer</summary>
@@ -274,3 +275,7 @@ __Hint: use `aggregate`__
 
 
 50. Find all listings with listing_url, name, address, host_picture_url in the listingsAndReviews collection that have a host with a picture url.
+
+
+
+
