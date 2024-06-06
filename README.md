@@ -281,5 +281,7 @@ _Hint: use `aggregate`_
 50. Find all listings with listing_url, name, address, host_picture_url in the listingsAndReviews collection that have a host with a picture url.
 
 
+## Sources
 
+- Documentation de MongoDB : https://www.mongodb.com/docs/manual/tutorial/query-documents/
 
