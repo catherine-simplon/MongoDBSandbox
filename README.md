@@ -74,9 +74,7 @@ db.listingsAndReviews. ...
 <details>
   <summary>Answer</summary>
   
-	```
- 	db.listingsAndReviews.findOne().price
- 	```
+	db.listingsAndReviews.findOne().price
 	
 </details>
 
@@ -92,49 +90,44 @@ db.listingsAndReviews. ...
 <details>
   <summary>Answer</summary>
   
-	```js
 	db.listingsAndReviews.find().limit(1).forEach(function(doc) {
 		print("Host Name: " + doc.host.host_name);
 		print("Host Location: " + doc.host.host_location);
 		print("Host About: " + doc.host.host_about);
 	});
-	```
+	
 </details>
 
 4. Retrieve the number of bedrooms in the first record in the listingsAndReviews collection.
 <details>
   <summary>Answer</summary>
   	
-	```js
 	db.listingsAndReviews.findOne().bedrooms
-	```
+	
 </details>
 
 5. Retrieve the number of guests are included in the first record in the listingsAndReviews collection.
 <details>
   <summary>Answer</summary>
   
-	```js
 	db.listingsAndReviews.findOne().guests_included
-	```
+
 </details>
 
 6. Write a MongoDB query to check whether the host have a profile picture in the first record in the listingsAndReviews collection.
 <details>
   <summary>Answer</summary>
   
-	```js
 	db.listingsAndReviews.findOne({}, {"host.host_has_profile_pic": 1})
-	```
+
 </details>
 
 7. Write a MongoDB query to check whether the host's identity have been verified in the first record in the listingsAndReviews collection.
 <details>
   <summary>Answer</summary>
   
-	```js
 	db.listingsAndReviews.findOne({}, {"host.host_identity_verified": 1})
-	```
+
 </details>
 
 8. Write a MongoDB query to find how many listings does the host have in the first records in the listingsAndReviews collection.
@@ -144,31 +137,28 @@ _Hint: use `aggregate`_
 <details>
   <summary>Answer</summary>
   
-	```js
 	db.listingsAndReviews.aggregate([
 		{ $match: {} },
 		{ $project: { host_listings_count: "$host.host_listings_count" } },
 		{ $limit: 1 }
 	])
-	```
+
 </details>
 
 9. Write a MongoDB query to find the street address of the first record in the listingsAndReviews collection.
 <details>
   <summary>Answer</summary>
   
-	```js
 	db.listingsAndReviews.findOne({}, {"address.street": 1})
-	```
+
 </details>
 
 10. Find all the listings in the listingsAndReviews collection where the property_type field is set to "House".
 <details>
   <summary>Answer</summary>
   
-	```js
 	db.listingsAndReviews.find({ property_type: "House" })
-	```
+
 </details>
 
 11. Find all the listings in the listingsAndReviews collection with listing_url, name, host_name, host_location, reviewer_name and price that have a nightly price greater than $500.
