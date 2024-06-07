@@ -74,7 +74,7 @@ db.listingsAndReviews. ...
 <details>
   <summary>Answer</summary>
   
-	```js
+	```
  	db.listingsAndReviews.findOne().price
  	```
 	
@@ -84,9 +84,8 @@ db.listingsAndReviews. ...
 <details>
   <summary>Answer</summary>
 	
-	```js
 	db.listingsAndReviews.findOne().cleaning_fee
-	```
+ 
 </details>
 
 3. Find the host_name, host_location, host_about of the first record in the listingsAndReviews collection.
