@@ -32,7 +32,7 @@ __VS Code :__
 Pour VSCode, télécharger l'extension "MongoDB for VS Code", installer, puis cliquer sur l'icône en feuille de MongoDB sur la gauche et dans "Add Connection", coller le "connection string", ne pas oublier de remplacer le mot de passe par celui défini précédemment.
 
 Vous avez maintenant accès au différentes bases de données, vous pouvez voir les documents, etc. 
-Et il y a même un "playgraound" avec des exemples, dans le quel vous pouvez tester des requêtes (c'est là qu'on va travailler).
+Et il y a même un "playground" avec des exemples, dans le quel vous pouvez tester des requêtes (c'est là qu'on va travailler).
 
 Regarder l'exemple du Playground, et le lancer avec l'icône "Run" en haut à droite.
 Observer les résultats, et raffraichir les collections pour voir apparaitre la nouvelle base de données.
@@ -284,4 +284,6 @@ _Hint: use `aggregate`_
 ## Sources
 
 - Documentation de MongoDB : https://www.mongodb.com/docs/manual/tutorial/query-documents/
+- Query documents : https://www.mongodb.com/docs/manual/tutorial/query-documents/
+- Query operators : https://www.mongodb.com/docs/manual/reference/operator/query/
 
