@@ -73,15 +73,18 @@ db.listingsAndReviews. ...
 1. Find the price per night of the first record in the listingsAndReviews collection.
 <details>
   <summary>Answer</summary>
-  ```js
-	db.listingsAndReviews.findOne().price
-	```
+  
+	```js
+ 	db.listingsAndReviews.findOne().price
+ 	```
+	
 </details>
 
 2. Retrieve the cleaning fee of the first record in the listingsAndReviews collection.
 <details>
   <summary>Answer</summary>
-  ```js
+	
+	```js
 	db.listingsAndReviews.findOne().cleaning_fee
 	```
 </details>
@@ -89,7 +92,8 @@ db.listingsAndReviews. ...
 3. Find the host_name, host_location, host_about of the first record in the listingsAndReviews collection.
 <details>
   <summary>Answer</summary>
-  ```js
+  
+	```js
 	db.listingsAndReviews.find().limit(1).forEach(function(doc) {
 		print("Host Name: " + doc.host.host_name);
 		print("Host Location: " + doc.host.host_location);
@@ -101,7 +105,8 @@ db.listingsAndReviews. ...
 4. Retrieve the number of bedrooms in the first record in the listingsAndReviews collection.
 <details>
   <summary>Answer</summary>
-  ```js
+  	
+	```js
 	db.listingsAndReviews.findOne().bedrooms
 	```
 </details>
@@ -109,7 +114,8 @@ db.listingsAndReviews. ...
 5. Retrieve the number of guests are included in the first record in the listingsAndReviews collection.
 <details>
   <summary>Answer</summary>
-  ```js
+  
+	```js
 	db.listingsAndReviews.findOne().guests_included
 	```
 </details>
@@ -117,7 +123,8 @@ db.listingsAndReviews. ...
 6. Write a MongoDB query to check whether the host have a profile picture in the first record in the listingsAndReviews collection.
 <details>
   <summary>Answer</summary>
-  ```js
+  
+	```js
 	db.listingsAndReviews.findOne({}, {"host.host_has_profile_pic": 1})
 	```
 </details>
@@ -125,7 +132,8 @@ db.listingsAndReviews. ...
 7. Write a MongoDB query to check whether the host's identity have been verified in the first record in the listingsAndReviews collection.
 <details>
   <summary>Answer</summary>
-  ```js
+  
+	```js
 	db.listingsAndReviews.findOne({}, {"host.host_identity_verified": 1})
 	```
 </details>
@@ -136,7 +144,8 @@ _Hint: use `aggregate`_
 
 <details>
   <summary>Answer</summary>
-  ```js
+  
+	```js
 	db.listingsAndReviews.aggregate([
 		{ $match: {} },
 		{ $project: { host_listings_count: "$host.host_listings_count" } },
@@ -148,7 +157,8 @@ _Hint: use `aggregate`_
 9. Write a MongoDB query to find the street address of the first record in the listingsAndReviews collection.
 <details>
   <summary>Answer</summary>
-  ```js
+  
+	```js
 	db.listingsAndReviews.findOne({}, {"address.street": 1})
 	```
 </details>
@@ -156,7 +166,8 @@ _Hint: use `aggregate`_
 10. Find all the listings in the listingsAndReviews collection where the property_type field is set to "House".
 <details>
   <summary>Answer</summary>
-  ```js
+  
+	```js
 	db.listingsAndReviews.find({ property_type: "House" })
 	```
 </details>
