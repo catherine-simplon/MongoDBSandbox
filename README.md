@@ -55,7 +55,7 @@ Pour les exercices, on va travailler dans la base de données `sample_airbnb`,
 __Pour VSCode__
 
 Créer un nouveau fichier, comme le playground. 
-Et faire un `use('sample_aibnb');` pour commencer. 
+Et faire un `use('sample_airbnb');` pour commencer. 
 La base de données est ensuite accessible avec `db. ...`
 
 __Pour Compass__
