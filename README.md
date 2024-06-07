@@ -162,48 +162,275 @@ _Hint: use `aggregate`_
 </details>
 
 11. Find all the listings in the listingsAndReviews collection with listing_url, name, host_name, host_location, reviewer_name and price that have a nightly price greater than $500.
+<details>
+  <summary>Answer</summary>
 
+
+	db.listingsAndReviews.find(
+	  {
+		price: { $gt: 500 }
+  	},
+  	{
+		listing_url: 1,
+		name: 1,
+    			"host.host_name": 1,
+    			"host.host_location": 1,
+    			"reviews.reviewer_name": 1,
+		price: 1,
+    		_id: 0
+  	}
+	)
+
+
+</details>
 
 12. Find all the listings in the listingsAndReviews collection that are located in Brazil and have a review score rating of at least 9. Return name, address, and review_scores_rating.
+<details>
+  <summary>Answer</summary>
+  
+	db.listingsAndReviews.find(
+    	{
+        	"address.country": "Brazil",
+        	"review_scores.review_scores_rating": { $gte: 9 }
+    	},
+    	{
+        	"name": 1,
+        	"address": 1,
+        	"review_scores.review_scores_rating": 1,
+        	"_id": 0
+    	}
+    	)
+
+</details>
 
 
 13. Find all the listings with name, address, reviewer_name, and review_scores_rating in the listingsAndReviews collection that have a "hot tub" amenity and are located in the United States.
+<details>
+  <summary>Answer</summary>
+
+	db.listingsAndReviews.find(
+    	{
+        	"address.country": "United States",
+        	"amenities": "Hot tub",
+        	"name": { "$exists": true },
+        	"address": { "$exists": true },
+        	"reviews.reviewer_name": { "$exists": true },
+        	"review_scores.review_scores_rating": { "$exists": true }
+    	},
+    	{
+        	"name": 1,
+        	"address": 1,
+        	"reviews.reviewer_name": 1,
+        	"review_scores.review_scores_rating": 1
+    	}
+	)
+	
+
+</details>
 
 
 14. Find all the listings with name, amenities and price in the listingsAndReviews collection that have a "pool" amenity and a nightly price between $200 and $400.
+<details>
+  <summary>Answer</summary>
+  
+	db.listingsAndReviews.find({
+		amenities: "Pool",
+		price: {
+    			$gte: 200,
+    			$lte: 400
+  		}
+	},
+	{
+		name: 1,
+		amenities: 1,
+		price: 1,
+  		_id: 0
+	})
+
+
+</details>
 
 
 15. Find all the listings with name, amenities and address in the listingsAndReviews collection that have a "Washer" amenity and are located in either Canada or Mexico.
+<details>
+  <summary>Answer</summary>
+  
+	db.listingsAndReviews.find({
+		amenities: "Washer",
+  		$or: [
+			{ "address.country": "Canada" },
+			{ "address.country": "Mexico" }
+  		]
+	},
+	{
+		name: 1,
+		amenities: 1,
+  			"address.country": 1,
+  			"address.street": 1,
+  			"address.city": 1,
+  		_id: 0
+	})
+
+
+</details>
 
 
 16. Find the top 10 most reviewed listings with listing_url, name, country, review_scoresin the listingsAndReviews collection.
+<details>
+  <summary>Answer</summary>
+  
+	db.listingsAndReviews.find({
+	amenities: "Washer",
+  	$or: [
+		{ "address.country": "Canada" },
+		{ "address.country": "Mexico" }
+  	]
+	},
+	{
+		name: 1,
+		amenities: 1,
+  			"address.country": 1,
+  			"address.street": 1,
+  			"address.city": 1,
+  		_id: 0
+	})
+
+
+</details>
 
 
 17. Find all the listings with listing_url, name, address and review_scores in the listingsAndReviews collection that have a "fireplace" amenity and a review score rating of at least 8.
+<details>
+  <summary>Answer</summary>
+  
+	db.listingsAndReviews.find({
+  		"amenities": "Essentials",
+  		"review_scores.review_scores_rating": { $gte: 8 }
+	}, {
+  		"listing_url": 1,
+  		"name": 1,
+  		"address": 1,
+  		"review_scores": 1,
+  		"_id": 0
+	})
+
+
+</details>
 
 
 18. Find all the listings with listing_url, name, address and amenities, review scores in the listingsAndReviews collection that have a "washer" amenity and are located in either Italy or Spain.
+<details>
+  <summary>Answer</summary>
+  
+	db.listingsAndReviews.find({
+  		"amenities": "Washer",
+  	"$or": [
+    		{"address.country": "Italy"},
+    		{"address.country": "Spain"}
+  		]
+	}, {
+  		"listing_url": 1,
+  		"name": 1,
+  		"address": 1,
+  		"review_scores": 1,
+  		"_id": 0
+	})
+
+</details>
 
 
 19. Find the listings with listing_url, name, address and amenities, price, review scores in the listingsAndReviews collection that have the highest nightly prices.
+<details>
+  <summary>Answer</summary>
+  	
+	db.listingsAndReviews.find(
+		{ "price": { "$exists": true } },
+		{ "listing_url": 1, "name": 1, "address": 1, "amenities": 1, "price": 1, "review_scores": 1 }
+	).sort({ "price": -1 }).limit(1)
+
+</details>
 
 
 20. Find the listings with listing_url, name, address and amenities,price,review scores in the listingsAndReviews collection that have the lowest nightly prices.
+<details>
+  <summary>Answer</summary>
+  
+	db.listingsAndReviews.find(
+		{ "price": { "$exists": true } },
+		{ "listing_url": 1, "name": 1, "address": 1, "amenities": 1, "price": 1, "review_scores": 1 }
+	).sort({ "price": 1 }).limit(1)
+
+
+</details>
 
 
 21. Retrieve all documents with name, address, reviewer_name, review_scores_ratingin the listingsAndReviewscollection that have a number_of_reviews field is equal to 0.
+<details>
+  <summary>Answer</summary>
+
+	db.listingsAndReviews.find(
+    	{
+		number_of_reviews: 0
+    	},
+    	{
+		name: 1,
+		address: 1,
+		reviewer_name: 1,
+		review_scores_rating: 1,
+        	_id: 0
+    	}
+	)
+
+</details>
 
 
 22. Retrieve all documents with name, address, host, reviewer_name, review_scores_ratingin the listingsAndReviews collection where the host_is_superhost field is equal to true.
+<details>
+  <summary>Answer</summary>
+
+   	db.listingsAndReviews.find(
+		{ "host.host_is_superhost": true },
+		{ name: 1, address: 1, "host.host_id": 1, "host.host_name": 1, reviewer_name: 1, review_scores_rating: 1 }
+	)
+
+
+</details>
 
 
 23. Retrieve all documents with name, address, host, reviewer_name, review_scores_ratingin the listingsAndReviews collection where the coordinates field is not null.
+<details>
+  <summary>Answer</summary>
+
+  	db.listingsAndReviews.find(
+		{ "address.location.coordinates": { $ne: null } },
+		{ "name": 1, "address": 1, "host": 1, "reviews.reviewer_name": 1, "review_scores.review_scores_rating": 1 }
+	)
+
+</details>
 
 
 24. Retrieve all documents with name, address, host, bed_type, bed, review_scores_ratingfrom the listingsAndReviewscollection where the beds field is greater than or equal to 2.
+<details>
+  <summary>Answer</summary>
+
+   	db.listingsAndReviews.find(
+		{ "beds": { $gte: 2 } },
+		{ "name": 1, "address": 1, "host": 1, "bed_type": 1, "beds": 1, "review_scores.review_scores_rating": 1 }
+	)
+
+</details>
 
 
 25. Find all listings with name, address, host in the listingsAndReviews collection that have a host with a host_name containing the word "Livia".
+<details>
+  <summary>Answer</summary>
+
+  	db.listingsAndReviews.find(
+		{ "host.host_name": { $regex: "Livia", $options: "i" } },
+		{ name: 1, address: 1, host: 1 }
+	)
+
+</details>
 
 
 26. Find all listings with name, address, host in the listingsAndReviews collection that have a host with a host_location of "Brazil".
